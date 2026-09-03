@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#FBF6F3">
+<meta name="theme-color" content="#3E1626">
 <title>二十六番目の秋</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,10 @@
   --rose:#B4436C;
   --rose-soft:#F3DDE4;
   --leaf:#77896C;
-  --gold:#B98A3E;
+  --gold:#B08A46;
+  --gold-lit:#D9B56A;
+  --plum:#3E1626;
+  --plum-2:#5A2338;
   --line:#E6D9D9;
   --mincho:"Zen Old Mincho",serif;
   --gothic:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
@@ -31,13 +34,13 @@
   :root:not([data-theme="light"]){
     --ground:#1E181B; --surface:#282024; --ink:#F2E9E9; --ink-soft:#C0AFB4;
     --muted:#96848A; --rose:#E790B0; --rose-soft:#3D2A32; --leaf:#9DB392;
-    --gold:#D9AE63; --line:#3B3034;
+    --gold:#D9AE63; --gold-lit:#EBCB8B; --plum:#2A0F1A; --plum-2:#43182A; --line:#3B3034;
   }
 }
 :root[data-theme="dark"]{
   --ground:#1E181B; --surface:#282024; --ink:#F2E9E9; --ink-soft:#C0AFB4;
   --muted:#96848A; --rose:#E790B0; --rose-soft:#3D2A32; --leaf:#9DB392;
-  --gold:#D9AE63; --line:#3B3034;
+  --gold:#D9AE63; --gold-lit:#EBCB8B; --plum:#2A0F1A; --plum-2:#43182A; --line:#3B3034;
 }
 *{box-sizing:border-box}
 body{
@@ -48,27 +51,51 @@ body{
 }
 .wrap{max-width:720px;margin:0 auto}
 
-/* ── 表紙 ── */
-.cover{padding:64px 0 40px;border-bottom:1px solid var(--line);text-align:center}
+/* ── 表紙：招待状 ── */
+.cover{
+  position:relative; margin:26px 0 0; padding:0; overflow:hidden;
+  border-radius:3px;
+  background:
+    radial-gradient(120% 90% at 50% -10%, var(--plum-2) 0%, var(--plum) 62%);
+  box-shadow:0 18px 44px -22px rgba(62,22,38,.55);
+}
+#confetti{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.cover-in{
+  position:relative; z-index:1; text-align:center;
+  padding:52px 26px 46px; margin:11px;
+  border:1px solid rgba(217,181,106,.42);
+  outline:1px solid rgba(217,181,106,.16); outline-offset:5px;
+}
 .eyebrow{
-  font-family:var(--num); font-size:12px; letter-spacing:.34em;
-  color:var(--rose); text-transform:uppercase; margin:0 0 22px;
+  font-family:var(--num); font-size:11px; font-weight:600; letter-spacing:.46em;
+  color:var(--gold-lit); text-transform:uppercase; margin:0 0 26px; padding-left:.46em;
+}
+.age{
+  font-family:var(--mincho); font-weight:900; color:var(--gold-lit);
+  font-size:clamp(72px,22vw,124px); line-height:.86; letter-spacing:.02em;
+  margin:0; text-shadow:0 2px 22px rgba(217,181,106,.28);
+}
+.age sup{font-size:.26em;font-weight:400;letter-spacing:.14em;margin-left:.12em;vertical-align:.9em}
+.rule{
+  width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:22px auto;
 }
 h1{
-  font-family:var(--mincho); font-weight:900; font-size:clamp(38px,10vw,60px);
-  line-height:1.22; letter-spacing:.06em; margin:0; text-wrap:balance;
+  font-family:var(--mincho); font-weight:600; color:#FFF7F2;
+  font-size:clamp(27px,7.2vw,40px); line-height:1.32; letter-spacing:.14em;
+  margin:0; text-wrap:balance;
 }
 .cover .sub{
-  font-family:var(--mincho); font-size:15px; color:var(--ink-soft);
-  letter-spacing:.16em; margin:20px 0 0;
+  font-family:var(--mincho); font-size:13.5px; color:rgba(255,247,242,.62);
+  letter-spacing:.3em; margin:16px 0 0; padding-left:.3em;
 }
 .dates{
-  display:flex; justify-content:center; gap:18px; align-items:baseline;
-  margin:26px 0 0; font-family:var(--num); color:var(--ink);
+  display:flex; justify-content:center; gap:14px; align-items:baseline;
+  margin:30px 0 0; font-family:var(--num); color:#FFF7F2;
 }
-.dates b{font-size:30px;font-weight:300;letter-spacing:.02em}
-.dates span{font-size:12px;letter-spacing:.2em;color:var(--muted)}
-.dates .tilde{color:var(--rose);font-size:18px}
+.dates b{font-size:27px;font-weight:300;letter-spacing:.03em}
+.dates span{font-size:10.5px;letter-spacing:.24em;color:rgba(255,247,242,.5)}
+.dates .tilde{color:var(--gold-lit);font-size:15px}
 
 /* ── 日の見出し ── */
 .day{margin:56px 0 0}
@@ -113,9 +140,14 @@ h1{
 /* ── 節 ── */
 h2{
   font-family:var(--mincho); font-size:21px; font-weight:600; letter-spacing:.08em;
-  margin:64px 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
-  text-wrap:balance;
+  margin:64px 0 18px; padding-bottom:10px; text-wrap:balance;
+  border-bottom:1px solid var(--line); position:relative;
 }
+h2::after{
+  content:""; position:absolute; left:0; bottom:-1px; width:44px; height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--rose));
+}
+.day-no{position:relative}
 p{margin:0 0 14px}
 
 /* ── バラの本数 ── */
@@ -176,11 +208,72 @@ footer{
 <div class="wrap">
 
 <header class="cover">
-  <p class="eyebrow">Birthday Itinerary</p>
-  <h1>二十六番目の秋</h1>
-  <p class="sub">原宿 — 汐留 — 立川</p>
-  <div class="dates">
-    <b>10.10</b><span>SAT</span><span class="tilde">—</span><b>10.11</b><span>SUN</span>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="cover-in">
+    <p class="eyebrow">Happy Birthday</p>
+    <p class="age">26<sup>th</sup></p>
+    <div class="rule"></div>
+
+<script>
+// ★表紙の紙吹雪。うるさくしない：ゆっくり降って、約6秒で止める。
+//   動きを減らす設定の人には、散らばった状態を1枚だけ描く。
+(function(){
+  var cv=document.getElementById('confetti'); if(!cv) return;
+  var ctx=cv.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
+  var W=0,H=0,bits=[],start=null,raf=null;
+  var COLORS=['#D9B56A','#B4436C','#F3DDE4','#EBCB8B','#8E3357'];
+  function size(){
+    var r=cv.getBoundingClientRect(); W=r.width; H=r.height;
+    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function make(){
+    bits=[];
+    var n=Math.round(W/13);
+    for(var i=0;i<n;i++) bits.push({
+      x:Math.random()*W, y:-Math.random()*H*1.2,
+      w:3+Math.random()*4, h:6+Math.random()*7,
+      vy:16+Math.random()*30, vx:(Math.random()-.5)*14,
+      rot:Math.random()*Math.PI, vr:(Math.random()-.5)*2.2,
+      c:COLORS[(Math.random()*COLORS.length)|0], a:.5+Math.random()*.45
+    });
+  }
+  function piece(b){
+    ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.rot);
+    ctx.globalAlpha=b.a; ctx.fillStyle=b.c;
+    ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h); ctx.restore();
+  }
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function still(){
+    ctx.clearRect(0,0,W,H);
+    bits.forEach(function(b){ b.y=Math.random()*H; piece(b); });
+  }
+  function step(t){
+    if(start===null) start=t;
+    var el=(t-start)/1000, dt=1/60;
+    ctx.clearRect(0,0,W,H);
+    var fade=el>4.5?Math.max(0,1-(el-4.5)/1.5):1;
+    bits.forEach(function(b){
+      b.y+=b.vy*dt; b.x+=b.vx*dt; b.rot+=b.vr*dt;
+      if(b.y>H+14){ b.y=-14; b.x=Math.random()*W; }
+      ctx.globalAlpha=1; var keep=b.a; b.a=keep*fade; piece(b); b.a=keep;
+    });
+    if(el<6) raf=requestAnimationFrame(step); else ctx.clearRect(0,0,W,H);
+  }
+  function boot(){
+    size(); make();
+    if(raf) cancelAnimationFrame(raf);
+    if(reduce){ still(); return; }
+    start=null; raf=requestAnimationFrame(step);
+  }
+  boot();
+  var tid; window.addEventListener('resize',function(){ clearTimeout(tid); tid=setTimeout(function(){ size(); make(); if(reduce) still(); },200); });
+})();
+</script>
+    <h1>二十六番目の秋</h1>
+    <p class="sub">原宿 — 汐留 — 立川</p>
+    <div class="dates">
+      <b>10.10</b><span>SAT</span><span class="tilde">—</span><b>10.11</b><span>SUN</span>
+    </div>
   </div>
 </header>
 
@@ -301,6 +394,70 @@ footer{
 <footer>10.10 — 10.11 / 2026</footer>
 
 </div>
+
+<script>
+// ★表紙の紙吹雪。うるさくしない＝ゆっくり降って約6秒で消える。
+//   「動きを減らす」設定の人には、散らばった静止画を1枚だけ描く。
+(function () {
+  var cv = document.getElementById('confetti');
+  if (!cv) return;
+  var ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, bits = [], start = null, raf = null;
+  var COLORS = ['#D9B56A', '#B4436C', '#F3DDE4', '#EBCB8B', '#8E3357'];
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function size() {
+    var r = cv.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function make() {
+    bits = [];
+    var n = Math.max(18, Math.round(W / 13));
+    for (var i = 0; i < n; i++) bits.push({
+      x: Math.random() * W, y: -Math.random() * H * 1.2,
+      w: 3 + Math.random() * 4, h: 6 + Math.random() * 7,
+      vy: 16 + Math.random() * 30, vx: (Math.random() - .5) * 14,
+      rot: Math.random() * Math.PI, vr: (Math.random() - .5) * 2.2,
+      c: COLORS[(Math.random() * COLORS.length) | 0], a: .45 + Math.random() * .45
+    });
+  }
+  function piece(b, alpha) {
+    ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(b.rot);
+    ctx.globalAlpha = alpha; ctx.fillStyle = b.c;
+    ctx.fillRect(-b.w / 2, -b.h / 2, b.w, b.h); ctx.restore();
+  }
+  function still() {
+    ctx.clearRect(0, 0, W, H);
+    bits.forEach(function (b) { b.y = Math.random() * H; piece(b, b.a); });
+  }
+  function step(t) {
+    if (start === null) start = t;
+    var el = (t - start) / 1000, dt = 1 / 60;
+    ctx.clearRect(0, 0, W, H);
+    var fade = el > 4.5 ? Math.max(0, 1 - (el - 4.5) / 1.5) : 1;
+    bits.forEach(function (b) {
+      b.y += b.vy * dt; b.x += b.vx * dt; b.rot += b.vr * dt;
+      if (b.y > H + 14) { b.y = -14; b.x = Math.random() * W; }
+      piece(b, b.a * fade);
+    });
+    if (el < 6) raf = requestAnimationFrame(step); else ctx.clearRect(0, 0, W, H);
+  }
+  function boot() {
+    size(); make();
+    if (raf) cancelAnimationFrame(raf);
+    if (reduce) { still(); return; }
+    start = null; raf = requestAnimationFrame(step);
+  }
+  boot();
+  var tid;
+  window.addEventListener('resize', function () {
+    clearTimeout(tid);
+    tid = setTimeout(function () { size(); make(); if (reduce) still(); }, 200);
+  });
+})();
+</script>
 
 </body>
 </html>
