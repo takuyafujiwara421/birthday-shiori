@@ -184,6 +184,12 @@ p{margin:0 0 14px}
 }
 .todo small{display:block;color:var(--muted);font-size:12.5px;line-height:1.65;margin-top:1px}
 
+.pending-lead{color:var(--muted);font-size:13.5px;margin:0 0 12px}
+ol.pending{margin:0 0 8px;padding-left:20px}
+ol.pending>li{margin:0 0 12px;font-size:15.5px;font-weight:700}
+ol.pending>li::marker{color:var(--rose);font-weight:700}
+ol.pending small{display:block;font-weight:400;color:var(--ink-soft);font-size:13.5px;line-height:1.75;margin-top:3px}
+ol.pending small b{color:var(--ink)}
 .alert{
   background:var(--rose-soft); border-radius:4px; padding:16px 18px; margin:22px 0;
   font-size:14.5px; line-height:1.8;
@@ -277,10 +283,34 @@ footer{
   </div>
 </header>
 
+<h2 style="margin-top:38px">まだ決めていないこと</h2>
+<p class="pending-lead">この5つが決まれば、あとは予約するだけ。<b>2026年9月3日時点</b>。</p>
+<ol class="pending">
+  <li><b>香水の店</b>
+    <small>① <b>THE NOTE BAR</b>（表参道）300種類以上・約60分・ラベルに刻印。表参道駅A2出口から徒歩6分<br>
+    ② <b>AROMA BLEND BAR</b>（原宿・表参道）<b>完全個室</b>・30ml 8,800円・モクテル付き　← <b>おすすめ</b><br>
+    ③ <b>アクティビティジャパンのプラン</b>　90種類から25cc・約90分・瓶のデザインも選べる</small></li>
+  <li><b>バラを16:30に見られないようにする方法</b>
+    <small>寝室など通らない部屋に置く／やっぱりレストランに預ける、のどちらか</small></li>
+  <li><b>ランチの店</b>（原宿・表参道／軽めに）
+    <small>一休.comレストランの「記念日ランチ・個室」で34件、OZmallの「誕生日ランチ」で記念日プレート付きが探せる</small></li>
+  <li><b>吉祥寺のブランチ</b>
+    <small>WORLD BREAKFAST ALLDAY（世界の朝ごはん・7:30から）／果実園リーベル（フルーツ）／椿屋珈琲 吉祥寺茶寮（9〜11時）</small></li>
+  <li><b>公園でレンタサイクルを使うか／KITORIまで足を伸ばすか</b>
+    <small>自転車は3時間半を持たせる決め手。KITORIは立川駅から車で10分なので移動手段の確認が要る</small></li>
+</ol>
+
 <section class="day">
   <div class="day-head"><span class="day-no">DAY 1</span><span class="day-date">10月10日（土）</span></div>
-  <p class="day-note">誕生日当日。夜に山場を置いて、昼はゆっくり。</p>
+  <p class="day-note">誕生日当日。<b>部屋づくりは朝のうちに済ませる</b>のが今回の肝。</p>
   <ul class="tl">
+    <li class="key"><div class="time">8:00</div><div>
+      <div class="what">部屋をつくる</div>
+      <div class="where">飾り付け／バラを置く／プレゼントを隠す／ケーキは冷蔵庫へ</div>
+      <div class="detail"><b>ここが今回いちばんの改善点。</b>16:30に二人で帰ってくる動線では準備できないので、朝のうちに全部終わらせる。<br>
+      ★<b>16:30に帰宅した時点で、彼女がバラを見てしまう</b>。寝室など通らない部屋に置くか、バラだけ店に預けるかを決めておく。</div>
+    </div></li>
+    <li class="move"><div class="time">11:00</div><div><div class="what">家を出る</div></div></li>
     <li><div class="time">11:45</div><div>
       <div class="what">原宿駅で待ち合わせ</div>
       <div class="where">12:00の予約に合わせて15分前に</div>
@@ -288,12 +318,13 @@ footer{
     <li><div class="time">12:00</div><div>
       <div class="what">ランチ</div>
       <div class="where">原宿・表参道エリア　〜13:15</div>
+      <div class="detail">夜がステーキなので<b>昼は軽めに</b>。<br>★<b>昼にお祝いプレートは頼まない。</b>夜のレストランでもケーキを出すので、2回やると夜が薄まる。</div>
     </div></li>
     <li class="move"><div class="time">13:15</div><div><div class="what">徒歩で移動</div></div></li>
     <li><div class="time">13:30</div><div>
-      <div class="what">手作り香水</div>
-      <div class="where">表参道　所要 1.5〜2時間　〜15:15</div>
-      <div class="detail">できた香水は<b>プレゼントとは別物</b>として扱う。「二人で作った香り」であって、贈り物ではないので、プレゼントは夜に別で渡す。</div>
+      <div class="what">香水づくり</div>
+      <div class="where">表参道　〜15:00 前後</div>
+      <div class="detail">できた香水は<b>プレゼントとは別物</b>。「二人で作った香り」であって贈り物ではないので、プレゼントは夜に別で渡す。</div>
     </div></li>
     <li><div class="time">15:30</div><div>
       <div class="what">カフェでひと休み</div>
@@ -301,51 +332,59 @@ footer{
     </div></li>
     <li class="move"><div class="time">16:20</div><div><div class="what">原宿 → 代々木（山手線1駅・約2分）</div></div></li>
     <li><div class="time">16:30</div><div>
-      <div class="what">自宅で支度</div>
-      <div class="where">代々木</div>
-      <div class="detail"><b>ここが段取りの山場。</b>21:30のサプライズを彼女の目の前で用意することはできない。飾り付けは<b>この時間より前に済ませておく</b>のが確実。難しければ、彼女が支度している間に別室で進める。</div>
+      <div class="what">帰宅して支度</div>
+      <div class="where">部屋はもう出来ている。着替えるだけ</div>
     </div></li>
     <li class="move"><div class="time">18:20</div><div><div class="what">代々木 → 汐留（都営大江戸線・直通で約13分）</div></div></li>
     <li class="key"><div class="time">19:00</div><div>
       <div class="what">Prime42 steakhouse &amp; sky bar</div>
       <div class="where">汐留　〜21:00</div>
-      <div class="detail"><b>バラ26本はこの店に預ける。</b>デザートのタイミングで出してもらう。原宿から花束を持ち歩くのは、萎れる・荷物になる・サプライズがバレる、の三重苦なので避ける。<br>予約の電話で「花束を預かってほしい」「デザートに合わせて出してほしい」「メッセージプレートを付けたい」の3点を伝えておく。</div>
+      <div class="detail"><b>店ではケーキとメッセージプレートだけ。</b>プレゼントとバラは家に取ってある。<br>予約の電話で「ケーキ」「メッセージプレート」の2点を伝えておく。</div>
     </div></li>
     <li class="move"><div class="time">21:05</div><div><div class="what">汐留 → 代々木</div></div></li>
     <li class="key"><div class="time">21:30</div><div>
-      <div class="what">自宅でバースデーサプライズ</div>
-      <div class="where">ケーキ・プレゼント</div>
-      <div class="detail">レストランで一度盛り上がったあとなので、ここは<b>静かに渡す</b>方が効く。一日に二度、派手な演出を重ねるより、部屋の灯りを落としてケーキとプレゼントだけ、の方が記憶に残る。</div>
+      <div class="what">家でプレゼントとバラを渡す</div>
+      <div class="detail">レストランで一度盛り上がったあとなので、ここは<b>静かに渡す</b>方が効く。灯りを落として、プレゼントとバラだけ。</div>
     </div></li>
   </ul>
 </section>
 
 <section class="day">
   <div class="day-head"><span class="day-no">DAY 2</span><span class="day-date">10月11日（日）</span></div>
-  <p class="day-note">前日と対照的に、外で過ごす一日。</p>
+  <p class="day-note">中央線で西へ。<b>吉祥寺で朝ごはん</b>を挟んでから立川へ。</p>
   <ul class="tl">
     <li><div class="time">10:30</div><div>
       <div class="what">起床</div>
       <div class="where">前日が遅いので無理をしない</div>
     </div></li>
-    <li><div class="time">11:00</div><div><div class="what">ブランチ</div></div></li>
-    <li class="move"><div class="time">12:00</div><div><div class="what">代々木 → 立川（JR中央線・約40分）</div></div></li>
-    <li><div class="time">12:45</div><div>
+    <li class="move"><div class="time">11:00</div><div><div class="what">代々木 → 吉祥寺（中央線・約15分）</div></div></li>
+    <li><div class="time">11:20</div><div>
+      <div class="what">吉祥寺でブランチ</div>
+      <div class="where">〜12:30</div>
+      <div class="detail">立川で食べると公園の直前になってしまう。<b>途中で降りる方が一日にメリハリが出る。</b><br>
+      候補：<b>WORLD BREAKFAST ALLDAY</b>（世界の朝ごはん・月替わり）／<b>果実園リーベル</b>（フルーツたっぷり）／<b>椿屋珈琲 吉祥寺茶寮</b>（落ち着いた喫茶・モーニングは9〜11時）</div>
+    </div></li>
+    <li class="move"><div class="time">12:40</div><div><div class="what">吉祥寺 → 立川（約25分）</div></div></li>
+    <li><div class="time">13:10</div><div>
+      <div class="what">立川駅ビルでテイクアウトを買う</div>
+      <div class="where">ルミネ・グランデュオのデパ地下</div>
+      <div class="detail">公園内の売店は限られるので<b>持ち込む前提</b>で。食べ物は当日に買う。<br>★<b>レジャーシート・ウェットティッシュ・飲み物</b>は前日までに用意しておく。</div>
+    </div></li>
+    <li><div class="time">13:30</div><div>
       <div class="what">国営昭和記念公園</div>
       <div class="where">立川駅から徒歩約10分　入園料は大人450円前後</div>
-      <div class="detail leaf">コスモスは品種で見頃がずれる。<b>10月上旬は「咲き始め」の可能性</b>があるので、前日に公園の開花情報を見ておく。見頃前でも、みんなの原っぱでのピクニックは成立する。</div>
+      <div class="detail leaf"><b>3時間半あるので、座っているだけだと間が持たない。レンタサイクルを推す。</b>園内は165ヘクタールあるので、自転車だと足りないくらいになる。<br>ほかに日本庭園（10月は紅葉の走り）、水鳥の池のボート。<br>★コスモスは品種で見頃がずれる。<b>10月上旬は咲き始めの可能性</b>があるので前日に開花情報を見る。</div>
     </div></li>
-    <li><div class="time">13:00</div><div>
-      <div class="what">コスモス畑・ピクニック</div>
-      <div class="where">〜16:00</div>
-    </div></li>
+    <li><div class="time">16:00</div><div><div class="what">公園を出る</div></div></li>
     <li><div class="time">16:30</div><div>
-      <div class="what">GREEN SPRINGS でお茶</div>
-      <div class="where">立川　〜18:00</div>
+      <div class="what">GREEN SPRINGS</div>
+      <div class="where">立川北駅から徒歩4分　〜18:00</div>
+      <div class="detail">カフェ・レストラン・雑貨が集まった複合施設。緑の広場があるので歩くだけで気持ちいい。<br>
+      ★時間と移動手段しだいで <b>KITORI（キトリ）</b> という選択肢も。「絵になる空間と物語のある暮らし」がコンセプトのインテリア雑貨店で、立川駅から車で10分。<b>いつか一緒に住む部屋を想像しながら見る時間</b>になる。</div>
     </div></li>
     <li class="key"><div class="time">18:00</div><div>
       <div class="what">手紙を渡す</div>
-      <div class="detail">二日間の最後を「解散」で終わらせないための一手。<b>お金はかからないのに、いちばん残る。</b>前日のプレゼントとは別に、ここで手紙を1通。</div>
+      <div class="detail">二日間の最後を「解散」で終わらせないための一手。<b>お金はかからないのに、いちばん残る。</b></div>
     </div></li>
     <li><div class="time">18:30</div><div><div class="what">解散</div></div></li>
   </ul>
@@ -381,9 +420,11 @@ footer{
 
 <h2>先にやっておくこと</h2>
 <ul class="todo">
-  <li><span class="box"></span><span>Prime42に電話<small>花束を預かってもらえるか／デザートに合わせて出してもらえるか／メッセージプレート。この一本で当日の完成度が変わる。</small></span></li>
-  <li><span class="box"></span><span>花屋にバラ26本を予約<small>当日受け取りか、店へ直接届けてもらえるかを相談する。</small></span></li>
-  <li><span class="box"></span><span>手作り香水の店を予約<small>13:30から2時間。表参道エリアで、当日枠が埋まりやすい。</small></span></li>
+  <li><span class="box"></span><span>Prime42に電話<small>ケーキとメッセージプレートを頼む。バラは家で渡すので預ける必要なし（預ける案に戻すならそのときに相談）。</small></span></li>
+  <li><span class="box"></span><span>10/10 朝8時に部屋をつくる時間を確保<small>これが最優先。前夜に飾りを買い揃えておく。</small></span></li>
+  <li><span class="box"></span><span>花屋にバラ26本を予約<small>10/9受け取り（一晩なら十分もつ）か、10/10の朝いち受け取り。</small></span></li>
+  <li><span class="box"></span><span>香水の店を決めて予約<small>13:30から。土曜は埋まりやすいので早めに。</small></span></li>
+  <li><span class="box"></span><span>レジャーシート・ウェットティッシュ・飲み物を用意<small>2日目のピクニック用。食べ物だけ当日、立川駅ビルで買う。</small></span></li>
   <li><span class="box"></span><span>プレゼントを決めて買う</span></li>
   <li><span class="box"></span><span>ケーキを予約<small>21:30に自宅で出す。当日受け取りだと荷物になるので、前日受け取りか配達を。</small></span></li>
   <li><span class="box"></span><span>部屋の飾り付けをいつやるか決める<small>16:30に彼女と一緒に帰宅する動線なので、それより前に済ませるのが確実。</small></span></li>
