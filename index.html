@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- ★検索には出さない。URLを知っている人だけが見られる状態にする -->
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FBF6F3">
+<title>二十六番目の秋</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@300;400;600&display=swap">
+</head>
+<body>
+<style>
+:root{
+  --ground:#FBF6F3;
+  --surface:#FFFFFF;
+  --ink:#2C2226;
+  --ink-soft:#6B5C61;
+  --muted:#9C8B90;
+  --rose:#B4436C;
+  --rose-soft:#F3DDE4;
+  --leaf:#77896C;
+  --gold:#B98A3E;
+  --line:#E6D9D9;
+  --mincho:"Zen Old Mincho",serif;
+  --gothic:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
+  --num:"Jost","Helvetica Neue",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#1E181B; --surface:#282024; --ink:#F2E9E9; --ink-soft:#C0AFB4;
+    --muted:#96848A; --rose:#E790B0; --rose-soft:#3D2A32; --leaf:#9DB392;
+    --gold:#D9AE63; --line:#3B3034;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1E181B; --surface:#282024; --ink:#F2E9E9; --ink-soft:#C0AFB4;
+  --muted:#96848A; --rose:#E790B0; --rose-soft:#3D2A32; --leaf:#9DB392;
+  --gold:#D9AE63; --line:#3B3034;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:var(--gothic); font-size:16px; line-height:1.85;
+  margin:0; padding:0 20px 80px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:720px;margin:0 auto}
+
+/* ── 表紙 ── */
+.cover{padding:64px 0 40px;border-bottom:1px solid var(--line);text-align:center}
+.eyebrow{
+  font-family:var(--num); font-size:12px; letter-spacing:.34em;
+  color:var(--rose); text-transform:uppercase; margin:0 0 22px;
+}
+h1{
+  font-family:var(--mincho); font-weight:900; font-size:clamp(38px,10vw,60px);
+  line-height:1.22; letter-spacing:.06em; margin:0; text-wrap:balance;
+}
+.cover .sub{
+  font-family:var(--mincho); font-size:15px; color:var(--ink-soft);
+  letter-spacing:.16em; margin:20px 0 0;
+}
+.dates{
+  display:flex; justify-content:center; gap:18px; align-items:baseline;
+  margin:26px 0 0; font-family:var(--num); color:var(--ink);
+}
+.dates b{font-size:30px;font-weight:300;letter-spacing:.02em}
+.dates span{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.dates .tilde{color:var(--rose);font-size:18px}
+
+/* ── 日の見出し ── */
+.day{margin:56px 0 0}
+.day-head{display:flex;align-items:baseline;gap:16px;margin:0 0 4px}
+.day-no{
+  font-family:var(--num); font-size:13px; letter-spacing:.24em;
+  color:var(--rose); font-weight:600;
+}
+.day-date{font-family:var(--mincho);font-size:26px;font-weight:600;letter-spacing:.05em}
+.day-note{color:var(--muted);font-size:13px;margin:0 0 26px}
+
+/* ── タイムライン ── */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{
+  content:""; position:absolute; left:64px; top:10px; bottom:10px;
+  width:1px; background:var(--line);
+}
+.tl>li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:22px;padding:0 0 26px}
+.time{
+  font-family:var(--num); font-size:17px; font-weight:400; letter-spacing:.02em;
+  text-align:right; padding-top:2px; font-variant-numeric:tabular-nums; color:var(--ink);
+}
+.tl>li::after{
+  content:""; position:absolute; left:60px; top:11px;
+  width:9px; height:9px; border-radius:50%;
+  background:var(--ground); border:1.5px solid var(--muted);
+}
+.tl>li.key::after{background:var(--rose);border-color:var(--rose);width:11px;height:11px;left:59px}
+.tl>li.move::after{background:var(--ground);border-color:var(--line);width:6px;height:6px;left:61px;top:13px}
+.what{font-weight:700;font-size:16.5px;line-height:1.6}
+.tl>li.key .what{color:var(--rose)}
+.where{color:var(--ink-soft);font-size:13.5px;margin-top:2px}
+.tl>li.move .what{font-weight:400;color:var(--muted);font-size:14px}
+.detail{
+  margin-top:10px; padding:12px 15px; background:var(--surface);
+  border-left:2px solid var(--rose); border-radius:0 3px 3px 0;
+  font-size:14px; line-height:1.75; color:var(--ink-soft);
+}
+.detail b{color:var(--ink)}
+.detail.leaf{border-left-color:var(--leaf)}
+
+/* ── 節 ── */
+h2{
+  font-family:var(--mincho); font-size:21px; font-weight:600; letter-spacing:.08em;
+  margin:64px 0 18px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  text-wrap:balance;
+}
+p{margin:0 0 14px}
+
+/* ── バラの本数 ── */
+.roses{display:grid;gap:0;margin:0 0 20px}
+.rose-row{
+  display:grid; grid-template-columns:62px 1fr; gap:16px; align-items:baseline;
+  padding:9px 0; border-bottom:1px solid var(--line);
+}
+.rose-row:last-child{border-bottom:none}
+.rose-n{font-family:var(--num);font-size:19px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.rose-row.pick{background:var(--rose-soft);margin:0 -14px;padding:11px 14px;border-radius:3px;border-bottom:none}
+.rose-row.pick .rose-n{color:var(--rose);font-weight:600;font-size:22px}
+.rose-row.pick .rose-m{font-weight:700;color:var(--ink)}
+.rose-row.warn .rose-m{color:var(--ink)}
+.rose-m small{display:block;color:var(--muted);font-size:12.5px;line-height:1.6}
+
+/* ── 予算 ── */
+.budget{width:100%;border-collapse:collapse;font-size:15px}
+.budget td{padding:9px 0;border-bottom:1px solid var(--line)}
+.budget td:last-child{text-align:right;font-family:var(--num);font-variant-numeric:tabular-nums;white-space:nowrap}
+.budget tr.total td{border-bottom:none;border-top:2px solid var(--ink);font-weight:700;padding-top:12px}
+.budget tr.total td:last-child{font-size:19px}
+.budget .note-cell{color:var(--muted);font-size:12.5px;display:block}
+
+/* ── 段取り ── */
+.todo{list-style:none;margin:0;padding:0}
+.todo li{
+  display:grid; grid-template-columns:20px 1fr; gap:12px;
+  padding:11px 0; border-bottom:1px solid var(--line); font-size:15px;
+}
+.todo li:last-child{border-bottom:none}
+.todo .box{
+  width:15px;height:15px;border:1.5px solid var(--rose);border-radius:2px;margin-top:5px;
+}
+.todo small{display:block;color:var(--muted);font-size:12.5px;line-height:1.65;margin-top:1px}
+
+.alert{
+  background:var(--rose-soft); border-radius:4px; padding:16px 18px; margin:22px 0;
+  font-size:14.5px; line-height:1.8;
+}
+.alert b{color:var(--rose)}
+
+footer{
+  margin-top:70px; padding-top:18px; border-top:1px solid var(--line);
+  font-size:12px; color:var(--muted); text-align:center; letter-spacing:.08em;
+  font-family:var(--num);
+}
+@media (max-width:520px){
+  .tl::before{left:52px}
+  .tl>li{grid-template-columns:52px 1fr;gap:16px}
+  .tl>li::after{left:48px}
+  .tl>li.move::after{left:49px}
+  .tl>li.key::after{left:47px}
+  .time{font-size:15px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="cover">
+  <p class="eyebrow">Birthday Itinerary</p>
+  <h1>二十六番目の秋</h1>
+  <p class="sub">原宿 — 汐留 — 立川</p>
+  <div class="dates">
+    <b>10.10</b><span>SAT</span><span class="tilde">—</span><b>10.11</b><span>SUN</span>
+  </div>
+</header>
+
+<section class="day">
+  <div class="day-head"><span class="day-no">DAY 1</span><span class="day-date">10月10日（土）</span></div>
+  <p class="day-note">誕生日当日。夜に山場を置いて、昼はゆっくり。</p>
+  <ul class="tl">
+    <li><div class="time">11:45</div><div>
+      <div class="what">原宿駅で待ち合わせ</div>
+      <div class="where">12:00の予約に合わせて15分前に</div>
+    </div></li>
+    <li><div class="time">12:00</div><div>
+      <div class="what">ランチ</div>
+      <div class="where">原宿・表参道エリア　〜13:15</div>
+    </div></li>
+    <li class="move"><div class="time">13:15</div><div><div class="what">徒歩で移動</div></div></li>
+    <li><div class="time">13:30</div><div>
+      <div class="what">手作り香水</div>
+      <div class="where">表参道　所要 1.5〜2時間　〜15:15</div>
+      <div class="detail">できた香水は<b>プレゼントとは別物</b>として扱う。「二人で作った香り」であって、贈り物ではないので、プレゼントは夜に別で渡す。</div>
+    </div></li>
+    <li><div class="time">15:30</div><div>
+      <div class="what">カフェでひと休み</div>
+      <div class="where">〜16:15</div>
+    </div></li>
+    <li class="move"><div class="time">16:20</div><div><div class="what">原宿 → 代々木（山手線1駅・約2分）</div></div></li>
+    <li><div class="time">16:30</div><div>
+      <div class="what">自宅で支度</div>
+      <div class="where">代々木</div>
+      <div class="detail"><b>ここが段取りの山場。</b>21:30のサプライズを彼女の目の前で用意することはできない。飾り付けは<b>この時間より前に済ませておく</b>のが確実。難しければ、彼女が支度している間に別室で進める。</div>
+    </div></li>
+    <li class="move"><div class="time">18:20</div><div><div class="what">代々木 → 汐留（都営大江戸線・直通で約13分）</div></div></li>
+    <li class="key"><div class="time">19:00</div><div>
+      <div class="what">Prime42 steakhouse &amp; sky bar</div>
+      <div class="where">汐留　〜21:00</div>
+      <div class="detail"><b>バラ26本はこの店に預ける。</b>デザートのタイミングで出してもらう。原宿から花束を持ち歩くのは、萎れる・荷物になる・サプライズがバレる、の三重苦なので避ける。<br>予約の電話で「花束を預かってほしい」「デザートに合わせて出してほしい」「メッセージプレートを付けたい」の3点を伝えておく。</div>
+    </div></li>
+    <li class="move"><div class="time">21:05</div><div><div class="what">汐留 → 代々木</div></div></li>
+    <li class="key"><div class="time">21:30</div><div>
+      <div class="what">自宅でバースデーサプライズ</div>
+      <div class="where">ケーキ・プレゼント</div>
+      <div class="detail">レストランで一度盛り上がったあとなので、ここは<b>静かに渡す</b>方が効く。一日に二度、派手な演出を重ねるより、部屋の灯りを落としてケーキとプレゼントだけ、の方が記憶に残る。</div>
+    </div></li>
+  </ul>
+</section>
+
+<section class="day">
+  <div class="day-head"><span class="day-no">DAY 2</span><span class="day-date">10月11日（日）</span></div>
+  <p class="day-note">前日と対照的に、外で過ごす一日。</p>
+  <ul class="tl">
+    <li><div class="time">10:30</div><div>
+      <div class="what">起床</div>
+      <div class="where">前日が遅いので無理をしない</div>
+    </div></li>
+    <li><div class="time">11:00</div><div><div class="what">ブランチ</div></div></li>
+    <li class="move"><div class="time">12:00</div><div><div class="what">代々木 → 立川（JR中央線・約40分）</div></div></li>
+    <li><div class="time">12:45</div><div>
+      <div class="what">国営昭和記念公園</div>
+      <div class="where">立川駅から徒歩約10分　入園料は大人450円前後</div>
+      <div class="detail leaf">コスモスは品種で見頃がずれる。<b>10月上旬は「咲き始め」の可能性</b>があるので、前日に公園の開花情報を見ておく。見頃前でも、みんなの原っぱでのピクニックは成立する。</div>
+    </div></li>
+    <li><div class="time">13:00</div><div>
+      <div class="what">コスモス畑・ピクニック</div>
+      <div class="where">〜16:00</div>
+    </div></li>
+    <li><div class="time">16:30</div><div>
+      <div class="what">GREEN SPRINGS でお茶</div>
+      <div class="where">立川　〜18:00</div>
+    </div></li>
+    <li class="key"><div class="time">18:00</div><div>
+      <div class="what">手紙を渡す</div>
+      <div class="detail">二日間の最後を「解散」で終わらせないための一手。<b>お金はかからないのに、いちばん残る。</b>前日のプレゼントとは別に、ここで手紙を1通。</div>
+    </div></li>
+    <li><div class="time">18:30</div><div><div class="what">解散</div></div></li>
+  </ul>
+</section>
+
+<h2>バラは何本にするか</h2>
+<p>本数には決まった意味がある。知らずに選ぶと、意図しないメッセージになる。</p>
+<div class="roses">
+  <div class="rose-row"><div class="rose-n">1</div><div class="rose-m">あなたしかいない</div></div>
+  <div class="rose-row"><div class="rose-n">3</div><div class="rose-m">愛しています</div></div>
+  <div class="rose-row"><div class="rose-n">6</div><div class="rose-m">あなたに夢中</div></div>
+  <div class="rose-row"><div class="rose-n">11</div><div class="rose-m">最愛</div></div>
+  <div class="rose-row warn"><div class="rose-n">12</div><div class="rose-m">私の妻になってください<small>プロポーズの本数。付き合って半年の段階では重い。同棲の話を切り出すつもりがあるなら、はじめて選択肢に入る。</small></div></div>
+  <div class="rose-row pick"><div class="rose-n">26</div><div class="rose-m">彼女の年齢の数<small>いちばん自然で、理由を聞かれたときに「26歳おめでとう」と答えられる。予算も現実的。これを推す。</small></div></div>
+</div>
+
+<h2>プレゼントをどうするか</h2>
+<p><b>手作り香水はプレゼントにしない。</b>一緒に作ったものは「二人の思い出」であって、あなたからの贈り物ではない。彼女の側から見ると「体験は楽しかったけれど、プレゼントは？」になりかねない。</p>
+<p><b>AirPodsは実用的だが、誕生日の特別感は薄い。</b>誕生日でなくても買えるものだから。同棲を考えている段階なら、毎日使う便利なものより、<b>身につけられるもの</b>か、<b>二人の生活に残るもの</b>の方が意味が乗る。</p>
+<div class="alert"><b>いちばん効くのは、彼女が自分では買わないけれど欲しがっていたもの。</b>心当たりがあれば、それを最優先で。無ければ、1万円台のアクセサリー（毎日着けられて、写真にも残る）が外れにくい。</div>
+
+<h2>予算の配分</h2>
+<table class="budget">
+  <tr><td>Prime42（2名）<span class="note-cell">この日いちばんの出費。ここは削らない</span></td><td>40,000</td></tr>
+  <tr><td>バラ 26本のブーケ</td><td>8,000</td></tr>
+  <tr><td>誕生日プレゼント</td><td>10,000</td></tr>
+  <tr><td>手作り香水（2名）</td><td>12,000</td></tr>
+  <tr><td>1日目 ランチ</td><td>3,000</td></tr>
+  <tr><td>2日目 ブランチ・入園料・お茶</td><td>5,000</td></tr>
+  <tr><td>ケーキ・部屋の飾り付け</td><td>2,000</td></tr>
+  <tr class="total"><td>合計</td><td>80,000</td></tr>
+</table>
+
+<h2>先にやっておくこと</h2>
+<ul class="todo">
+  <li><span class="box"></span><span>Prime42に電話<small>花束を預かってもらえるか／デザートに合わせて出してもらえるか／メッセージプレート。この一本で当日の完成度が変わる。</small></span></li>
+  <li><span class="box"></span><span>花屋にバラ26本を予約<small>当日受け取りか、店へ直接届けてもらえるかを相談する。</small></span></li>
+  <li><span class="box"></span><span>手作り香水の店を予約<small>13:30から2時間。表参道エリアで、当日枠が埋まりやすい。</small></span></li>
+  <li><span class="box"></span><span>プレゼントを決めて買う</span></li>
+  <li><span class="box"></span><span>ケーキを予約<small>21:30に自宅で出す。当日受け取りだと荷物になるので、前日受け取りか配達を。</small></span></li>
+  <li><span class="box"></span><span>部屋の飾り付けをいつやるか決める<small>16:30に彼女と一緒に帰宅する動線なので、それより前に済ませるのが確実。</small></span></li>
+  <li><span class="box"></span><span>手紙を書く<small>2日目の最後に渡す。前日までに書いておく。</small></span></li>
+  <li><span class="box"></span><span>10/10の前日に、昭和記念公園の開花情報を確認</span></li>
+</ul>
+
+<footer>10.10 — 10.11 / 2026</footer>
+
+</div>
+
+</body>
+</html>
