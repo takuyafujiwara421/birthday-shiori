@@ -10,14 +10,14 @@
 <style>
 /* 写真を一面に敷き、白い明朝で場所と一言を重ねる。予定ごとに1枚ずつめくっていく感覚 */
 :root {
-  --night: #0d1630; --ink: #1f1f24; --paper: #f7f5f1; --muted: #77737a; --gold: #d8bb7a; --line: #e4dfd6;
+  --night: #070b1a; --ink: #f2ede3; --paper: #0a0f22; --card: #121831; --muted: #a39fb4; --gold: #d9b874; --line: rgba(217,184,116,.22);
   --serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
   --sans: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
   --latin: "Cormorant Garamond", "Times New Roman", serif;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
-body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+body { background: var(--paper) radial-gradient(120% 60% at 50% 0%, #1a2350 0%, rgba(10,15,34,0) 60%) no-repeat; color: var(--ink); font-family: var(--sans); line-height: 1.75; -webkit-font-smoothing: antialiased; }
 .wrap { max-width: 560px; margin: 0 auto; }
 
 /* 表紙 */
@@ -38,22 +38,23 @@ body { background: var(--paper); color: var(--ink); font-family: var(--sans); li
 
 /* メッセージ */
 .msg { padding: 56px 28px 24px; text-align: center; font-family: var(--serif); font-size: 17px; line-height: 2.1; }
-.msg b { font-weight: 600; }
+.msg b { font-weight: 600; color: var(--gold); }
 
 /* 日付の見出し */
 .day { padding: 48px 0 8px; }
 .day-head { text-align: center; padding: 0 24px 22px; }
 .day-head .no { font-family: var(--latin); font-style: italic; font-size: 20px; color: var(--gold); letter-spacing: .1em; }
 .day-head h2 { font-family: var(--serif); font-weight: 600; font-size: 28px; margin: 2px 0 4px; letter-spacing: .06em; }
+.day-head::after { content: ""; display: block; width: 64px; height: 1px; margin: 16px auto 0; background: var(--gold); opacity: .6; }
 .day-head p { margin: 0; color: var(--muted); font-size: 14px; }
 
 /* 1枚ずつの写真 */
-.slide { position: relative; aspect-ratio: 4 / 5; max-width: 100%; color: #fff; text-align: center; overflow: hidden;
+.slide { position: relative; aspect-ratio: 4 / 5; margin: 0 14px; border: 1px solid var(--line); max-width: 100%; color: #fff; text-align: center; overflow: hidden;
   background: var(--night) center/cover no-repeat; display: flex; flex-direction: column; align-items: center; padding: 34px 22px; }
 .slide::before { content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.25) 42%, rgba(0,0,0,0) 62%, rgba(0,0,0,.35) 100%); }
+  background: radial-gradient(130% 90% at 50% 45%, rgba(7,11,26,0) 35%, rgba(7,11,26,.55) 100%), linear-gradient(180deg, rgba(7,11,26,.78) 0%, rgba(7,11,26,.42) 40%, rgba(7,11,26,.22) 62%, rgba(7,11,26,.75) 100%); }
 .slide > * { position: relative; }
-.slide .num { font-family: var(--serif); font-size: 15px; letter-spacing: .14em; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.slide .num { color: var(--gold); font-family: var(--serif); font-size: 15px; letter-spacing: .14em; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
 .slide .num i { font-family: var(--latin); font-style: italic; font-size: 34px; margin-right: 8px; vertical-align: -4px; }
 .slide h3 { font-family: var(--serif); font-weight: 800; font-size: clamp(30px, 9vw, 42px); line-height: 1.25; margin: 4px 0 0; letter-spacing: .04em;
   text-shadow: 0 2px 16px rgba(0,0,0,.5); text-wrap: balance; }
@@ -65,21 +66,22 @@ body { background: var(--paper); color: var(--ink); font-family: var(--sans); li
 .info .where { font-size: 13px; color: var(--muted); letter-spacing: .04em; }
 .info p { margin: 6px 0 0; font-size: 15px; }
 .info .pick { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
-.info .pick span { border: 1px solid var(--line); background: #fff; padding: 8px 12px; font-size: 14px; }
-.info .pick b { font-family: var(--serif); font-weight: 600; }
+.info .pick span { border: 1px solid var(--line); background: var(--card); padding: 8px 12px; font-size: 14px; }
+.info .pick b { font-family: var(--serif); font-weight: 600; color: var(--gold); }
+.info p b { color: var(--gold); font-weight: 500; }
 
 /* 写真の間の小さな予定 */
 .step { display: flex; gap: 14px; align-items: baseline; padding: 10px 26px; color: var(--muted); font-size: 14px; }
-.step .t { font-family: var(--latin); font-size: 18px; color: var(--ink); min-width: 3.4em; }
+.step .t { font-family: var(--latin); font-size: 18px; color: var(--gold); min-width: 3.4em; }
 .step.soft { padding-bottom: 26px; }
 
 /* 最後 */
 .end { margin-top: 40px; }
 .end .slide { aspect-ratio: 4 / 4.2; justify-content: center; }
-.end .slide::before { background: linear-gradient(180deg, rgba(60,20,40,.35), rgba(60,20,40,.45)); }
+.end .slide::before { background: linear-gradient(180deg, rgba(7,11,26,.45), rgba(7,11,26,.7)); }
 
 .bring { padding: 48px 26px 20px; }
-.bring h2 { font-family: var(--serif); font-weight: 600; font-size: 22px; text-align: center; margin: 0 0 18px; letter-spacing: .08em; }
+.bring h2 { color: var(--gold); font-family: var(--serif); font-weight: 600; font-size: 22px; text-align: center; margin: 0 0 18px; letter-spacing: .08em; }
 .bring ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .bring li { padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 15px; }
 .bring li small { display: block; color: var(--muted); font-size: 12.5px; }
@@ -131,7 +133,7 @@ footer small { display: block; font-family: var(--sans); letter-spacing: 0; font
   </article>
 
   <article>
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1626783416763-67a92e5e7266?auto=format&fit=crop&w=1100&q=75')">
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1631438406588-3a079c32b864?auto=format&fit=crop&w=1100&q=75')">
       <div class="num"><i>2</i>新大久保</div>
       <h3>クレイパックづくり</h3>
       <div class="line">肌に合うパウダーを選んで、<br>ふたりで瓶に重ねていく。</div>
@@ -220,7 +222,7 @@ footer small { display: block; font-family: var(--sans); letter-spacing: 0; font
 </section>
 
 <section class="end">
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1602615576820-ea14cf3e476a?auto=format&fit=crop&w=1100&q=75')">
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1717153982802-b0bd0b2eb579?auto=format&fit=crop&w=1100&q=75')">
     <h3>二日間、ありがとう。</h3>
     <div class="line">18:00</div>
   </div>
