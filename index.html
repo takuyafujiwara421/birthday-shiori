@@ -2,432 +2,242 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#3E1626">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>二十六番目の秋</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@300;400;600&display=swap">
-</head>
-<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap">
 <style>
-:root{
-  --ground:#FBF6F3;
-  --surface:#FFFFFF;
-  --ink:#2C2226;
-  --ink-soft:#6B5C61;
-  --muted:#9C8B90;
-  --rose:#B4436C;
-  --rose-soft:#F3DDE4;
-  --leaf:#77896C;
-  --gold:#B08A46;
-  --gold-lit:#D9B56A;
-  --plum:#3E1626;
-  --plum-2:#5A2338;
-  --line:#E6D9D9;
-  --mincho:"Zen Old Mincho",serif;
-  --gothic:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
-  --num:"Jost","Helvetica Neue",sans-serif;
+/* 写真を一面に敷き、白い明朝で場所と一言を重ねる。予定ごとに1枚ずつめくっていく感覚 */
+:root {
+  --night: #0d1630; --ink: #1f1f24; --paper: #f7f5f1; --muted: #77737a; --gold: #d8bb7a; --line: #e4dfd6;
+  --serif: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --sans: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  --latin: "Cormorant Garamond", "Times New Roman", serif;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --ground:#1E181B; --surface:#282024; --ink:#F2E9E9; --ink-soft:#C0AFB4;
-    --muted:#96848A; --rose:#E790B0; --rose-soft:#3D2A32; --leaf:#9DB392;
-    --gold:#D9AE63; --gold-lit:#EBCB8B; --plum:#2A0F1A; --plum-2:#43182A; --line:#3B3034;
-  }
-}
-:root[data-theme="dark"]{
-  --ground:#1E181B; --surface:#282024; --ink:#F2E9E9; --ink-soft:#C0AFB4;
-  --muted:#96848A; --rose:#E790B0; --rose-soft:#3D2A32; --leaf:#9DB392;
-  --gold:#D9AE63; --gold-lit:#EBCB8B; --plum:#2A0F1A; --plum-2:#43182A; --line:#3B3034;
-}
-*{box-sizing:border-box}
-body{
-  background:var(--ground); color:var(--ink);
-  font-family:var(--gothic); font-size:16px; line-height:1.85;
-  margin:0; padding:0 20px 80px;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:720px;margin:0 auto}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 560px; margin: 0 auto; }
 
-/* ── 表紙：招待状 ── */
-.cover{
-  position:relative; margin:26px 0 0; padding:0; overflow:hidden;
-  border-radius:3px;
-  background:
-    radial-gradient(120% 90% at 50% -10%, var(--plum-2) 0%, var(--plum) 62%);
-  box-shadow:0 18px 44px -22px rgba(62,22,38,.55);
-}
-#confetti{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
-.cover-in{
-  position:relative; z-index:1; text-align:center;
-  padding:52px 26px 46px; margin:11px;
-  border:1px solid rgba(217,181,106,.42);
-  outline:1px solid rgba(217,181,106,.16); outline-offset:5px;
-}
-.eyebrow{
-  font-family:var(--num); font-size:11px; font-weight:600; letter-spacing:.46em;
-  color:var(--gold-lit); text-transform:uppercase; margin:0 0 26px; padding-left:.46em;
-}
-.age{
-  font-family:var(--mincho); font-weight:900; color:var(--gold-lit);
-  font-size:clamp(72px,22vw,124px); line-height:.86; letter-spacing:.02em;
-  margin:0; text-shadow:0 2px 22px rgba(217,181,106,.28);
-}
-.age sup{font-size:.26em;font-weight:400;letter-spacing:.14em;margin-left:.12em;vertical-align:.9em}
-.rule{
-  width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin:22px auto;
-}
-h1{
-  font-family:var(--mincho); font-weight:600; color:#FFF7F2;
-  font-size:clamp(27px,7.2vw,40px); line-height:1.32; letter-spacing:.14em;
-  margin:0; text-wrap:balance;
-}
-.cover .sub{
-  font-family:var(--mincho); font-size:13.5px; color:rgba(255,247,242,.62);
-  letter-spacing:.3em; margin:16px 0 0; padding-left:.3em;
-}
-.dates{
-  display:flex; justify-content:center; gap:14px; align-items:baseline;
-  margin:30px 0 0; font-family:var(--num); color:#FFF7F2;
-}
-.dates b{font-size:27px;font-weight:300;letter-spacing:.03em}
-.dates span{font-size:10.5px;letter-spacing:.24em;color:rgba(255,247,242,.5)}
-.dates .tilde{color:var(--gold-lit);font-size:15px}
+/* 表紙 */
+.cover { position: relative; min-height: min(100svh, 820px); display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  padding: max(14vh, 72px) 24px 40px; text-align: center; color: #fff; overflow: hidden;
+  background: var(--night) center/cover no-repeat; }
+.cover::before { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,14,40,.72) 0%, rgba(8,14,40,.35) 45%, rgba(8,14,40,.15) 70%, rgba(8,14,40,.65) 100%); }
+.cover > * { position: relative; }
+.eyebrow { font-family: var(--latin); letter-spacing: .32em; font-size: 13px; color: var(--gold); text-transform: uppercase; }
+.cover h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(32px, 10vw, 60px); line-height: 1.2; margin: 14px 0 0; letter-spacing: .02em;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45); text-wrap: balance; }
+.arc { display: block; width: min(78%, 360px); height: 18px; margin: 14px auto 10px; }
+.cover .tag { font-family: var(--serif); font-size: 17px; letter-spacing: .2em; text-shadow: 0 1px 10px rgba(0,0,0,.5); }
+.dates { margin-top: auto; font-family: var(--latin); font-size: 26px; letter-spacing: .08em; text-shadow: 0 1px 10px rgba(0,0,0,.5); }
+.dates small { font-size: 12px; letter-spacing: .3em; margin: 0 10px 0 4px; opacity: .85; }
+.scroll { margin-top: 14px; font-size: 11px; letter-spacing: .3em; opacity: .8; }
 
-/* ── 日の見出し ── */
-.day{margin:56px 0 0}
-.day-head{display:flex;align-items:baseline;gap:16px;margin:0 0 4px}
-.day-no{
-  font-family:var(--num); font-size:13px; letter-spacing:.24em;
-  color:var(--rose); font-weight:600;
-}
-.day-date{font-family:var(--mincho);font-size:26px;font-weight:600;letter-spacing:.05em}
-.day-note{color:var(--muted);font-size:13px;margin:0 0 26px}
+/* メッセージ */
+.msg { padding: 56px 28px 24px; text-align: center; font-family: var(--serif); font-size: 17px; line-height: 2.1; }
+.msg b { font-weight: 600; }
 
-/* ── タイムライン ── */
-.tl{list-style:none;margin:0;padding:0;position:relative}
-.tl::before{
-  content:""; position:absolute; left:75px; top:10px; bottom:10px;
-  width:1px; background:var(--line);
-}
-.tl>li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:22px;padding:0 0 26px}
-.time{
-  font-family:var(--num); font-size:17px; font-weight:400; letter-spacing:.02em;
-  text-align:right; padding-top:2px; font-variant-numeric:tabular-nums; color:var(--ink);
-}
-.tl>li::after{
-  content:""; position:absolute; left:70.5px; top:11px;
-  width:9px; height:9px; border-radius:50%;
-  background:var(--ground); border:1.5px solid var(--muted);
-}
-.tl>li.key::after{background:var(--rose);border-color:var(--rose);width:11px;height:11px;left:69.5px}
-.tl>li.move::after{background:var(--ground);border-color:var(--line);width:6px;height:6px;left:72px;top:13px}
-.what{font-weight:700;font-size:16.5px;line-height:1.6}
-.tl>li.key .what{color:var(--rose)}
-.where{color:var(--ink-soft);font-size:13.5px;margin-top:2px}
-.tl>li.move .what{font-weight:400;color:var(--muted);font-size:14px}
-.detail{
-  margin-top:10px; padding:12px 15px; background:var(--surface);
-  border-left:2px solid var(--rose); border-radius:0 3px 3px 0;
-  font-size:14px; line-height:1.75; color:var(--ink-soft);
-}
-.detail b{color:var(--ink)}
-.detail.leaf{border-left-color:var(--leaf)}
+/* 日付の見出し */
+.day { padding: 48px 0 8px; }
+.day-head { text-align: center; padding: 0 24px 22px; }
+.day-head .no { font-family: var(--latin); font-style: italic; font-size: 20px; color: var(--gold); letter-spacing: .1em; }
+.day-head h2 { font-family: var(--serif); font-weight: 600; font-size: 28px; margin: 2px 0 4px; letter-spacing: .06em; }
+.day-head p { margin: 0; color: var(--muted); font-size: 14px; }
 
-/* ── 節 ── */
-h2{
-  font-family:var(--mincho); font-size:21px; font-weight:600; letter-spacing:.08em;
-  margin:64px 0 18px; padding-bottom:10px; text-wrap:balance;
-  border-bottom:1px solid var(--line); position:relative;
-}
-h2::after{
-  content:""; position:absolute; left:0; bottom:-1px; width:44px; height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--rose));
-}
-.day-no{position:relative}
-p{margin:0 0 14px}
+/* 1枚ずつの写真 */
+.slide { position: relative; aspect-ratio: 4 / 5; max-width: 100%; color: #fff; text-align: center; overflow: hidden;
+  background: var(--night) center/cover no-repeat; display: flex; flex-direction: column; align-items: center; padding: 34px 22px; }
+.slide::before { content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.58) 0%, rgba(0,0,0,.25) 42%, rgba(0,0,0,0) 62%, rgba(0,0,0,.35) 100%); }
+.slide > * { position: relative; }
+.slide .num { font-family: var(--serif); font-size: 15px; letter-spacing: .14em; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.slide .num i { font-family: var(--latin); font-style: italic; font-size: 34px; margin-right: 8px; vertical-align: -4px; }
+.slide h3 { font-family: var(--serif); font-weight: 800; font-size: clamp(30px, 9vw, 42px); line-height: 1.25; margin: 4px 0 0; letter-spacing: .04em;
+  text-shadow: 0 2px 16px rgba(0,0,0,.5); text-wrap: balance; }
+.slide .line { font-family: var(--serif); font-size: 16px; line-height: 1.8; margin-top: 2px; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
+.slide .time { margin-top: auto; font-family: var(--latin); font-size: 22px; letter-spacing: .1em; text-shadow: 0 1px 10px rgba(0,0,0,.6); }
 
-/* ── 一覧 ── */
-.roses{display:grid;gap:0;margin:0 0 20px}
-.rose-row{
-  display:grid; grid-template-columns:62px 1fr; gap:16px; align-items:baseline;
-  padding:9px 0; border-bottom:1px solid var(--line);
-}
-.rose-row:last-child{border-bottom:none}
-.rose-n{font-family:var(--num);font-size:19px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
-.rose-row.pick{background:var(--rose-soft);margin:0 -14px;padding:11px 14px;border-radius:3px;border-bottom:none}
-.rose-row.pick .rose-n{color:var(--rose);font-weight:600;font-size:22px}
-.rose-row.pick .rose-m{font-weight:700;color:var(--ink)}
-.rose-row.warn .rose-m{color:var(--ink)}
-.rose-m small{display:block;color:var(--muted);font-size:12.5px;line-height:1.6}
+/* 写真の下の説明 */
+.info { padding: 18px 26px 30px; }
+.info .where { font-size: 13px; color: var(--muted); letter-spacing: .04em; }
+.info p { margin: 6px 0 0; font-size: 15px; }
+.info .pick { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+.info .pick span { border: 1px solid var(--line); background: #fff; padding: 8px 12px; font-size: 14px; }
+.info .pick b { font-family: var(--serif); font-weight: 600; }
 
-/* ── 表 ── */
-.budget{width:100%;border-collapse:collapse;font-size:15px}
-.budget td{padding:9px 0;border-bottom:1px solid var(--line)}
-.budget td:last-child{text-align:right;font-family:var(--num);font-variant-numeric:tabular-nums;white-space:nowrap}
-.budget tr.total td{border-bottom:none;border-top:2px solid var(--ink);font-weight:700;padding-top:12px}
-.budget tr.total td:last-child{font-size:19px}
-.budget .note-cell{color:var(--muted);font-size:12.5px;display:block}
+/* 写真の間の小さな予定 */
+.step { display: flex; gap: 14px; align-items: baseline; padding: 10px 26px; color: var(--muted); font-size: 14px; }
+.step .t { font-family: var(--latin); font-size: 18px; color: var(--ink); min-width: 3.4em; }
+.step.soft { padding-bottom: 26px; }
 
-/* ── 段取り ── */
-.todo{list-style:none;margin:0;padding:0}
-.todo li{
-  display:grid; grid-template-columns:20px 1fr; gap:12px;
-  padding:11px 0; border-bottom:1px solid var(--line); font-size:15px;
-}
-.todo li:last-child{border-bottom:none}
-.todo .box{
-  width:15px;height:15px;border:1.5px solid var(--rose);border-radius:2px;margin-top:5px;
-}
-.todo small{display:block;color:var(--muted);font-size:12.5px;line-height:1.65;margin-top:1px}
+/* 最後 */
+.end { margin-top: 40px; }
+.end .slide { aspect-ratio: 4 / 4.2; justify-content: center; }
+.end .slide::before { background: linear-gradient(180deg, rgba(60,20,40,.35), rgba(60,20,40,.45)); }
 
-.pending-lead{color:var(--muted);font-size:13.5px;margin:0 0 12px}
-ol.pending{margin:0 0 8px;padding-left:20px}
-ol.pending>li{margin:0 0 12px;font-size:15.5px;font-weight:700}
-ol.pending>li::marker{color:var(--rose);font-weight:700}
-ol.pending small{display:block;font-weight:400;color:var(--ink-soft);font-size:13.5px;line-height:1.75;margin-top:3px}
-ol.pending small b{color:var(--ink)}
-.alert{
-  background:var(--rose-soft); border-radius:4px; padding:16px 18px; margin:22px 0;
-  font-size:14.5px; line-height:1.8;
-}
-.alert b{color:var(--rose)}
+.bring { padding: 48px 26px 20px; }
+.bring h2 { font-family: var(--serif); font-weight: 600; font-size: 22px; text-align: center; margin: 0 0 18px; letter-spacing: .08em; }
+.bring ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.bring li { padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 15px; }
+.bring li small { display: block; color: var(--muted); font-size: 12.5px; }
+footer { text-align: center; padding: 30px 20px 50px; color: var(--muted); font-family: var(--latin); letter-spacing: .2em; font-size: 13px; }
+footer small { display: block; font-family: var(--sans); letter-spacing: 0; font-size: 10px; margin-top: 8px; opacity: .7; }
 
-footer{
-  margin-top:70px; padding-top:18px; border-top:1px solid var(--line);
-  font-size:12px; color:var(--muted); text-align:center; letter-spacing:.08em;
-  font-family:var(--num);
-}
-@media (max-width:520px){
-  .tl::before{left:60px}
-  .tl>li{grid-template-columns:52px 1fr;gap:16px}
-  .tl>li::after{left:55.5px}
-  .tl>li.move::after{left:57px}
-  .tl>li.key::after{left:54.5px}
-  .time{font-size:15px}
+@media (prefers-reduced-motion: no-preference) {
+  .cover h1, .cover .tag, .arc { animation: rise 1.4s ease-out both; }
+  .cover .tag { animation-delay: .35s; } .arc { animation-delay: .2s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 }
 </style>
+</head>
+<body>
+
+<header class="cover" style="background-image:url('https://images.unsplash.com/photo-1544768784-2d876c85ff15?auto=format&fit=crop&w=1400&q=75')">
+  <div class="eyebrow">Happy Birthday</div>
+  <h1>二十六番目の秋</h1>
+  <svg class="arc" viewBox="0 0 360 18" aria-hidden="true"><path d="M4 16 Q180 -8 356 16" fill="none" stroke="#fff" stroke-width="1.2" opacity=".85"/></svg>
+  <div class="tag">ふたりの特別な二日間を。</div>
+  <div class="dates">10.10<small>SAT</small>— 10.11<small>SUN</small></div>
+  <div class="scroll">SCROLL</div>
+</header>
 
 <div class="wrap">
 
-<header class="cover">
-  <canvas id="confetti" aria-hidden="true"></canvas>
-  <div class="cover-in">
-    <p class="eyebrow">Happy Birthday</p>
-    <p class="age">26<sup>th</sup></p>
-    <div class="rule"></div>
+<p class="msg">26歳のお誕生日、おめでとう。<br>この二日間の予定です。<br><b>ぜんぶ任せて、楽しんでくれたらうれしい。</b></p>
 
-<script>
-// ★表紙の紙吹雪。うるさくしない：ゆっくり降って、約6秒で止める。
-//   動きを減らす設定の人には、散らばった状態を1枚だけ描く。
-(function(){
-  var cv=document.getElementById('confetti'); if(!cv) return;
-  var ctx=cv.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2);
-  var W=0,H=0,bits=[],start=null,raf=null;
-  var COLORS=['#D9B56A','#B4436C','#F3DDE4','#EBCB8B','#8E3357'];
-  function size(){
-    var r=cv.getBoundingClientRect(); W=r.width; H=r.height;
-    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  function make(){
-    bits=[];
-    var n=Math.round(W/13);
-    for(var i=0;i<n;i++) bits.push({
-      x:Math.random()*W, y:-Math.random()*H*1.2,
-      w:3+Math.random()*4, h:6+Math.random()*7,
-      vy:16+Math.random()*30, vx:(Math.random()-.5)*14,
-      rot:Math.random()*Math.PI, vr:(Math.random()-.5)*2.2,
-      c:COLORS[(Math.random()*COLORS.length)|0], a:.5+Math.random()*.45
-    });
-  }
-  function piece(b){
-    ctx.save(); ctx.translate(b.x,b.y); ctx.rotate(b.rot);
-    ctx.globalAlpha=b.a; ctx.fillStyle=b.c;
-    ctx.fillRect(-b.w/2,-b.h/2,b.w,b.h); ctx.restore();
-  }
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function still(){
-    ctx.clearRect(0,0,W,H);
-    bits.forEach(function(b){ b.y=Math.random()*H; piece(b); });
-  }
-  function step(t){
-    if(start===null) start=t;
-    var el=(t-start)/1000, dt=1/60;
-    ctx.clearRect(0,0,W,H);
-    var fade=el>4.5?Math.max(0,1-(el-4.5)/1.5):1;
-    bits.forEach(function(b){
-      b.y+=b.vy*dt; b.x+=b.vx*dt; b.rot+=b.vr*dt;
-      if(b.y>H+14){ b.y=-14; b.x=Math.random()*W; }
-      ctx.globalAlpha=1; var keep=b.a; b.a=keep*fade; piece(b); b.a=keep;
-    });
-    if(el<6) raf=requestAnimationFrame(step); else ctx.clearRect(0,0,W,H);
-  }
-  function boot(){
-    size(); make();
-    if(raf) cancelAnimationFrame(raf);
-    if(reduce){ still(); return; }
-    start=null; raf=requestAnimationFrame(step);
-  }
-  boot();
-  var tid; window.addEventListener('resize',function(){ clearTimeout(tid); tid=setTimeout(function(){ size(); make(); if(reduce) still(); },200); });
-})();
-</script>
-    <h1>二十六番目の秋</h1>
-    <p class="sub">新大久保 — 汐留 — 立川</p>
-    <div class="dates">
-      <b>10.10</b><span>SAT</span><span class="tilde">—</span><b>10.11</b><span>SUN</span>
-    </div>
+<section class="day">
+  <div class="day-head">
+    <div class="no">Day 1</div>
+    <h2>10月10日（土）</h2>
+    <p>新大久保でのんびりして、夜は汐留へ</p>
   </div>
-</header>
 
-<p class="day-note" style="margin-top:38px">26歳のお誕生日、おめでとう。<br>この2日間の予定です。<b>ぜんぶ任せて、楽しんでくれたらうれしい。</b></p>
+  <div class="step"><span class="t">13:00</span><span>新大久保駅で待ち合わせ</span></div>
 
-<section class="day">
-  <div class="day-head"><span class="day-no">DAY 1</span><span class="day-date">10月10日（土）</span></div>
-  <p class="day-note">お誕生日当日。新大久保でのんびりして、夜は汐留へ。</p>
-  <ul class="tl">
-    <li><div class="time">13:00</div><div>
-      <div class="what">新大久保駅で待ち合わせ</div>
-    </div></li>
-    <li><div class="time">13:10</div><div>
-      <div class="what">カフェでのんびり</div>
-      <div class="where">新大久保　〜16:15</div>
-      <div class="detail">軽く食べながら、急がずゆっくりおしゃべりする時間。<b>夜にお楽しみがあるので、食べるのは軽めに。</b></div>
-    </div></li>
-    <li class="key"><div class="time">16:30</div><div>
-      <div class="what">クレイパックづくり</div>
-      <div class="where">my clay story（新大久保駅から徒歩3分）　約30分</div>
-      <div class="detail">肌診断をしてもらって、自分の肌に合うパウダーを選んで瓶に重ねていく。<b>二人で「どれにする？」って選ぼう。</b>作ったパックは持って帰れるよ。</div>
-    </div></li>
-    <li class="move"><div class="time">17:15</div><div><div class="what">新大久保 → 代々木（山手線・約5分）</div></div></li>
-    <li><div class="time">17:30</div><div>
-      <div class="what">いったん家へ。おめかし</div>
-      <div class="where">〜18:15</div>
-    </div></li>
-    <li class="move"><div class="time">18:20</div><div><div class="what">代々木 → 汐留（都営大江戸線・約13分）</div></div></li>
-    <li class="key"><div class="time">19:00</div><div>
-      <div class="what">ディナー</div>
-      <div class="where">汐留　〜21:00</div>
-      <div class="detail">お店は当日までひみつ。<b>少しだけおしゃれして来てね。</b></div>
-    </div></li>
-    <li class="move"><div class="time">21:05</div><div><div class="what">汐留 → 代々木</div></div></li>
-    <li><div class="time">21:30</div><div>
-      <div class="what">おうちでゆっくり</div>
-    </div></li>
-  </ul>
+  <article>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1721775999121-7be73ba0e29f?auto=format&fit=crop&w=1100&q=75')">
+      <div class="num"><i>1</i>新大久保</div>
+      <h3>カフェでのんびり</h3>
+      <div class="line">軽く食べながら、<br>急がずゆっくりおしゃべりを。</div>
+      <div class="time">13:10 — 16:15</div>
+    </div>
+    <div class="info">
+      <div class="where">新大久保駅のそば</div>
+      <p>夜にお楽しみがあるので、食べるのは軽めに。</p>
+    </div>
+  </article>
+
+  <article>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1626783416763-67a92e5e7266?auto=format&fit=crop&w=1100&q=75')">
+      <div class="num"><i>2</i>新大久保</div>
+      <h3>クレイパックづくり</h3>
+      <div class="line">肌に合うパウダーを選んで、<br>ふたりで瓶に重ねていく。</div>
+      <div class="time">16:30 — 17:10</div>
+    </div>
+    <div class="info">
+      <div class="where">my clay story ／ 新大久保駅から徒歩3分</div>
+      <p>肌診断をしてもらってから作ります。<b>「どれにする？」って一緒に選ぼう。</b>作ったパックは持って帰れるよ。</p>
+    </div>
+  </article>
+
+  <div class="step"><span class="t">17:15</span><span>新大久保 → 代々木（山手線・約5分）</span></div>
+  <div class="step soft"><span class="t">17:30</span><span>いったん家へ。おめかしの時間</span></div>
+
+  <article>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1666968307091-2811adbc97d6?auto=format&fit=crop&w=1100&q=75')">
+      <div class="num"><i>3</i>汐留</div>
+      <h3>夜景とディナー</h3>
+      <div class="line">東京の夜を眺めながら、<br>26歳のお祝いを。</div>
+      <div class="time">19:00 — 21:00</div>
+    </div>
+    <div class="info">
+      <div class="where">代々木 → 汐留（都営大江戸線・約13分）18:20出発</div>
+      <p>お店は当日までひみつ。<b>少しだけおしゃれして来てね。</b></p>
+    </div>
+  </article>
+
+  <div class="step soft"><span class="t">21:30</span><span>おうちでゆっくり</span></div>
 </section>
 
 <section class="day">
-  <div class="day-head"><span class="day-no">DAY 2</span><span class="day-date">10月11日（日）</span></div>
-  <p class="day-note">中央線で西へ。吉祥寺で朝ごはんを食べてから、立川の大きな公園へ。</p>
-  <ul class="tl">
-    <li><div class="time">10:30</div><div>
-      <div class="what">ゆっくり起きる</div>
-      <div class="where">前の日が遅いので、のんびりスタート</div>
-    </div></li>
-    <li class="move"><div class="time">11:00</div><div><div class="what">代々木 → 吉祥寺（中央線・約15分）</div></div></li>
-    <li><div class="time">11:20</div><div>
-      <div class="what">吉祥寺でブランチ</div>
-      <div class="where">〜12:30</div>
-      <div class="detail">どこがいい？<br><b>WORLD BREAKFAST ALLDAY</b>（世界の朝ごはん）／<b>果実園リーベル</b>（フルーツたっぷり）／<b>椿屋珈琲 吉祥寺茶寮</b>（落ち着いた喫茶）</div>
-    </div></li>
-    <li class="move"><div class="time">12:40</div><div><div class="what">吉祥寺 → 立川（約25分）</div></div></li>
-    <li><div class="time">13:10</div><div>
-      <div class="what">駅ビルでピクニックのお昼を買う</div>
-      <div class="where">ルミネ・グランデュオのデパ地下</div>
-    </div></li>
-    <li class="key"><div class="time">13:30</div><div>
-      <div class="what">国営昭和記念公園</div>
-      <div class="where">立川駅から徒歩約10分　〜16:00</div>
-      <div class="detail leaf">とっても広い公園なので、<b>自転車を借りてまわるのがおすすめ。</b><br>コスモス畑、日本庭園（紅葉の走り）、水鳥の池のボート。</div>
-    </div></li>
-    <li><div class="time">16:30</div><div>
-      <div class="what">GREEN SPRINGS</div>
-      <div class="where">立川北駅から徒歩4分　〜18:00</div>
-      <div class="detail">カフェや雑貨のお店が集まった、緑の広場のある場所。夕方の散歩にちょうどいい。</div>
-    </div></li>
-    <li><div class="time">18:00</div><div><div class="what">2日間ありがとう</div></div></li>
+  <div class="day-head">
+    <div class="no">Day 2</div>
+    <h2>10月11日（日）</h2>
+    <p>中央線で西へ。吉祥寺から、立川の大きな公園へ</p>
+  </div>
+
+  <div class="step"><span class="t">10:30</span><span>ゆっくり起きる。のんびりスタート</span></div>
+  <div class="step"><span class="t">11:00</span><span>代々木 → 吉祥寺（中央線・約15分）</span></div>
+
+  <article>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1664192578366-523c01b7ce43?auto=format&fit=crop&w=1100&q=75')">
+      <div class="num"><i>4</i>吉祥寺</div>
+      <h3>ブランチ</h3>
+      <div class="line">遅めの朝ごはんで、<br>二日目をゆっくり始める。</div>
+      <div class="time">11:20 — 12:30</div>
+    </div>
+    <div class="info">
+      <div class="where">どこがいい？</div>
+      <div class="pick">
+        <span><b>WORLD BREAKFAST ALLDAY</b>　世界の朝ごはん</span>
+        <span><b>果実園リーベル</b>　フルーツたっぷり</span>
+        <span><b>椿屋珈琲 吉祥寺茶寮</b>　落ち着いた喫茶</span>
+      </div>
+    </div>
+  </article>
+
+  <div class="step"><span class="t">12:40</span><span>吉祥寺 → 立川（約25分）</span></div>
+  <div class="step soft"><span class="t">13:10</span><span>駅ビルのデパ地下で、ピクニックのお昼を買う</span></div>
+
+  <article>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1709625470934-a6568ff9ba01?auto=format&fit=crop&w=1100&q=75')">
+      <div class="num"><i>5</i>立川</div>
+      <h3>国営昭和記念公園</h3>
+      <div class="line">秋の花畑を、<br>自転車でぐるっとめぐる。</div>
+      <div class="time">13:30 — 16:00</div>
+    </div>
+    <div class="info">
+      <div class="where">立川駅から徒歩約10分</div>
+      <p>とっても広い公園なので、<b>自転車を借りてまわるのがおすすめ。</b>コスモス畑、日本庭園、水鳥の池のボート。</p>
+    </div>
+  </article>
+
+  <article>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1702234844718-5f4f77a93baa?auto=format&fit=crop&w=1100&q=75')">
+      <div class="num"><i>6</i>立川</div>
+      <h3>GREEN SPRINGS</h3>
+      <div class="line">緑の広場とカフェで、<br>夕方のさんぽ。</div>
+      <div class="time">16:30 — 18:00</div>
+    </div>
+    <div class="info">
+      <div class="where">立川北駅から徒歩4分</div>
+      <p>カフェや雑貨のお店が集まった、緑の広場のある場所。</p>
+    </div>
+  </article>
+</section>
+
+<section class="end">
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1602615576820-ea14cf3e476a?auto=format&fit=crop&w=1100&q=75')">
+    <h3>二日間、ありがとう。</h3>
+    <div class="line">18:00</div>
+  </div>
+</section>
+
+<section class="bring">
+  <h2>あるとうれしい持ちもの</h2>
+  <ul>
+    <li>歩きやすい靴<small>二日目は公園で自転車にも乗るよ</small></li>
+    <li>夜のディナー用に、ちょっとおしゃれな服</li>
+    <li>一泊分のおとまりセット</li>
+    <li>羽織るもの<small>10月の夕方の公園は少し冷えるかも</small></li>
   </ul>
 </section>
 
-<h2>あるとうれしい持ちもの</h2>
-<ul class="todo">
-  <li><span class="box"></span><span>歩きやすい靴<small>2日目は公園で自転車にも乗るよ</small></span></li>
-  <li><span class="box"></span><span>夜のディナー用に、ちょっとおしゃれな服</span></li>
-  <li><span class="box"></span><span>1泊分のおとまりセット</span></li>
-  <li><span class="box"></span><span>羽織るもの<small>10月の夕方の公園は少し冷えるかも</small></span></li>
-</ul>
-
-<footer>10.10 — 10.11 / 2026</footer>
+<footer>10.10 — 10.11 / 2026<small>Photos: Unsplash</small></footer>
 
 </div>
-
-<script>
-// ★表紙の紙吹雪。うるさくしない＝ゆっくり降って約6秒で消える。
-//   「動きを減らす」設定の人には、散らばった静止画を1枚だけ描く。
-(function () {
-  var cv = document.getElementById('confetti');
-  if (!cv) return;
-  var ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0, bits = [], start = null, raf = null;
-  var COLORS = ['#D9B56A', '#B4436C', '#F3DDE4', '#EBCB8B', '#8E3357'];
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function size() {
-    var r = cv.getBoundingClientRect();
-    W = r.width; H = r.height;
-    cv.width = W * dpr; cv.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  function make() {
-    bits = [];
-    var n = Math.max(18, Math.round(W / 13));
-    for (var i = 0; i < n; i++) bits.push({
-      x: Math.random() * W, y: -Math.random() * H * 1.2,
-      w: 3 + Math.random() * 4, h: 6 + Math.random() * 7,
-      vy: 16 + Math.random() * 30, vx: (Math.random() - .5) * 14,
-      rot: Math.random() * Math.PI, vr: (Math.random() - .5) * 2.2,
-      c: COLORS[(Math.random() * COLORS.length) | 0], a: .45 + Math.random() * .45
-    });
-  }
-  function piece(b, alpha) {
-    ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(b.rot);
-    ctx.globalAlpha = alpha; ctx.fillStyle = b.c;
-    ctx.fillRect(-b.w / 2, -b.h / 2, b.w, b.h); ctx.restore();
-  }
-  function still() {
-    ctx.clearRect(0, 0, W, H);
-    bits.forEach(function (b) { b.y = Math.random() * H; piece(b, b.a); });
-  }
-  function step(t) {
-    if (start === null) start = t;
-    var el = (t - start) / 1000, dt = 1 / 60;
-    ctx.clearRect(0, 0, W, H);
-    var fade = el > 4.5 ? Math.max(0, 1 - (el - 4.5) / 1.5) : 1;
-    bits.forEach(function (b) {
-      b.y += b.vy * dt; b.x += b.vx * dt; b.rot += b.vr * dt;
-      if (b.y > H + 14) { b.y = -14; b.x = Math.random() * W; }
-      piece(b, b.a * fade);
-    });
-    if (el < 6) raf = requestAnimationFrame(step); else ctx.clearRect(0, 0, W, H);
-  }
-  function boot() {
-    size(); make();
-    if (raf) cancelAnimationFrame(raf);
-    if (reduce) { still(); return; }
-    start = null; raf = requestAnimationFrame(step);
-  }
-  boot();
-  var tid;
-  window.addEventListener('resize', function () {
-    clearTimeout(tid);
-    tid = setTimeout(function () { size(); make(); if (reduce) still(); }, 200);
-  });
-})();
-</script>
-
 </body>
 </html>
